@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Track - dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/logo.png">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript"> // grafico do google chart
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.load('current', { 'packages': ['bar'] });
+        google.charts.setOnLoadCallback(grafico_calorias);
+        google.charts.setOnLoadCallback(grafico_pontos_cardio);
+        google.charts.setOnLoadCallback(grafico_dieta);
+
+        function grafico_calorias() {
+            var data = google.visualization.arrayToDataTable([
+                ['Dias', 'calorias de fevereiro', 'Calorias de março', 'Meta de março'],
+                ['5', 1000, 400, 1200],
+                ['12', 1170, 1, 1300],
+                ['19', 660, 1, 1350],
+                ['26', 1030, 1, 1500],
+                ['31', 1030, 1, 1800],
+            ]);
+
+            var options = {
+                title: 'Mes de março',
+                colors: ['#2C9F19', '#FFF500', '#302B2B'],
+                'width': 400,
+                'height': 150,
+                'chartArea': { 'width': '95%', 'height': '60%' },
+                legend: { position: 'top', maxLines: 2 },
+                vAxis: { minValue: 0 },
+                backgroundColor: { fill: '#C4C4C4' }
+            };
+
+            var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+
+        //segundo grafico
+        function grafico_pontos_cardio() {
+            var data = google.visualization.arrayToDataTable([
+                ['dias', 'Pontos adquiridos', 'Meta de hoje'],
+                ['6h - 10h', 1, 22],
+                ['10h - 14h', 10, 44],
+                ['14h - 18h', 20, 56],
+                ['18h - 22h', 37, 78],
+                ['22h - 24h', 50, 85],
+            ]);
+
+            var options = {
+                title: 'Pontos cardio hoje',
+                'width': 400,
+                'height': 150,
+                'chartArea': { 'width': '95%', 'height': '60%' },
+                colors: ['#FFF500', '#302B2B'],
+                curveType: 'function',
+                backgroundColor: { fill: '#C4C4C4' },
+                legend: { position: 'top' }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+            chart.draw(data, options);
+        }
+
+        //terceiro grafico
+        function grafico_dieta() {
+            var data = google.visualization.arrayToDataTable([
+                ['mes', 'Peso KG', 'Gordura C. %', 'Perdeu KG'],
+                ['Janeiro', 85, 22, 4],
+                ['fevereiro', 77, 21, 8],
+                ['março', 72, 21, 14]
+            ]);
+
+            var options = {
+                chart: {
+                    title: 'Perda de peso e gordura corporal'
+                },
+                legend: { position: 'top' },
+                hAxis: {
+                    textStyle: { color: 'black' }
+                },
+                backgroundColor: { fill: '#C4C4C4' },
+                colors: ['#FFF500', '#302B2B', '#2c9f19'],
+                'width': 400,
+                'height': 200,
+                'chartArea': { 'width': '100%', 'height': '100%' }
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <div class="nav-content">
+                <a href="treino.html">
+                    <img src="img/dumbbell-solid 4.svg" alt="">
+                    Treino
+                </a>
+            </div>
+            <div class="nav-content">
+                <a href="dieta.html">
+                    <img src="img/apple-alt-solid 4.svg" alt="">
+                    Dieta
+                </a>
+            </div>
+            <div class="nav-content pc">
+                <a href="plano.html">
+                    <img src="img/address-card-solid 1.svg" alt="">
+                    Plano
+                </a>
+            </div>
+            <div class="nav-content">
+                <a href="dashboard.html">
+                    <div class="nav-active"></div>
+                    <img src="img/home-solid 4.svg" alt="">
+                    Inicio
+                </a>
+            </div>
+            <div class="nav-content">
+                <a href="extra.html">
+                    <img src="img/clock-regular 4.svg" alt="">
+                    Extra
+                </a>
+            </div>
+            <div class="nav-content">
+                <a href="perfil.html">
+                    <img src="img/user-solid 4.svg" alt="">
+                    Perfil
+                </a>
+            </div>
+            <div class="nav-content pc">
+                <a href="login.html">
+                    <img src="img/door-open-solid 1.svg" alt="">
+                    Sair
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="conteudo">
+            <div class="display-f-c treino">
+                <h1>Treino: Incompleto</h1>
+                <div class="circular">
+                    <div class="inner"></div>
+                    <div class="number"><span>90</span><span class="porc">%</span></div>
+                    <div class="circle">
+                        <div class="bar left">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="bar right">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="linha"></div>
+                <div class="mobile width-100">
+                    <div>
+                        <p>Calorias gastas nessa semana: 2201kj</p>
+                        <div class="display-flex-space-bet">
+                            <span>calorias hoje: 201kj</span> <span>meta diaria: 500kj</span>
+                        </div>
+                    </div>
+                    <div class="linha"></div>
+                </div>
+
+                <div class="display-flex-space-bet width-100">
+                    <span class="p-right">Dias consecutivos: 75</span>
+                    <span>Status: <img src="img/fire.svg" alt=""><img src="img/fire.svg" alt=""><img src="img/fire.svg"
+                            alt=""><img src="img/fire.svg" alt=""><img src="img/fire.svg" alt=""><img src="img/fire.svg"
+                            alt="">
+                    </span>
+                </div>
+                <div class="linha"></div>
+                <div class="width-100 mobile-pequeno">
+                    <div class="center">
+                        <p>Exercicios de hoje</p>
+                    </div>
+                    <div class="display-flex-space-bet width-100">
+                        <table class="width-100">
+                            <tr>
+                                <td>Prancha:</td>
+                                <td>45m</td>
+                                <td>|</td>
+                                <td>Abdominais:</td>
+                                <td>3x10</td>
+                            </tr>
+                            <tr>
+                                <td>Caminhada:</td>
+                                <td>4h</td>
+                                <td>|</td>
+                                <td>Flexão:</td>
+                                <td>5x10</td>
+                            </tr>
+                            <tr>
+                                <td>aquecimento:</td>
+                                <td>10m</td>
+                                <td>|</td>
+                                <td>Agachamento:</td>
+                                <td>10x10</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="linha"></div>
+                </div>
+                <div class="mobile width-100">
+                    <p class="m-bottom-pequeno">Pontos cardio</p>
+                    <div class="ranger">
+                        <div class="ranger-valor"></div>
+                        <span class="ranger-num-valor">87</span>
+                    </div>
+                    <div class="display-flex-space-bet">
+                        <span>0</span> <span>200</span>
+                    </div>
+                    <div class="linha"></div>
+                </div>
+                <div class="width-100 m-top">
+                    <div class="display-flex-space-bet m-bottom-pequeno">
+                        <span>Fotos - progresso</span> <a href="" class="a-estilo-1">Todas as fotos</a>
+                    </div>
+                    <div class="display-flex-space-around p-top">
+                        <div>
+                            <div class="div-border-1 display-f-c">
+                                <img src="img/img-treino/img-treino-dia-1.svg" alt="" class="img-treino">
+                            </div>
+                            <span class="texto-pequeno">DIA 1</span>
+                        </div>
+
+                        <div>
+                            <div class="div-border-1 display-f-c">
+                                <img src="img/img-treino/img-treino-dia-30.svg" alt="" class="img-treino">
+                            </div>
+                            <span class="texto-pequeno">DIA 30</span>
+                        </div>
+
+                        <div>
+                            <div class="div-border-1 display-f-c">
+                                <img src="img/img-treino/img-treino-dia-60.svg" alt="" class="img-treino">
+                            </div>
+                            <span class="texto-pequeno">DIA 60</span>
+                        </div>
+                        <div>
+                            <div class="div-border-1 display-f-c">
+                                <img src="img/img-treino/img-treino-dia-75.svg" alt="" class="img-treino">
+                            </div>
+                            <span class="texto-pequeno">DIA 75</span>
+                        </div>
+                    </div>
+                    <a href="" class="a-estilo-2 m-top m-bottom-pequeno">Não estou conseguindo manter a rotina</a>
+                </div>
+            </div>
+            <div class="display-f-c calorias">
+                <h1>Calorias gastas</h1>
+                <div class="circular">
+                    <div class="inner"></div>
+                    <div class="number"><span>4000</span><span class="porc">cal</span></div>
+                    <div class="circle">
+                        <div class="bar left">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="bar right">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="chart_div" class="m-top"></div>
+                <div id="curve_chart"></div>
+            </div>
+            <div class="display-f-c dieta">
+                <h1>Dieta</h1>
+                <div class="circular">
+                    <div class="inner"></div>
+                    <div class="number"><span>34</span><span class="porc">kg</span></div>
+                    <div class="circle">
+                        <div class="bar left">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="bar right">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="linha"></div>
+                <div class="display-flex-space-bet width-100 m-top">
+                    <span>Nivel Dieta: PERFEITA</span> <span>Meta de perda: 40kg</span>
+                </div>
+                <div class="linha"></div>
+                <div class="display-flex-space-bet width-100 m-top">
+                    <a href="" class="a-estilo-1">Editar dieta</a>
+                    <a href="" class="a-estilo-1">Conversar com especialistas</a>
+                    <a href="" class="a-estilo-1">Dieta recomendadas</a>
+                </div>
+                <div id="columnchart_material" class="m-top"></div>
+            </div>
+        </section>
+    </main>
+
+
+    <script>
+        /*  codigo para os numeros subir, por enquanto irei deixar em comentario por que o foco e apenas o visual(html, css e site responsivo)
+            quando presisar usar javascript ou o backend eu termino esse codigo
+        const numb = document.querySelector(".span-number");
+        let counter = 0;
+        setInterval(() => {
+            if (counter == 90) {
+                clearInterval();
+            } else {
+                counter += 1;
+                numb.textContent = counter;
+            }
+        }, 80);
+        */
+    </script>
+</body>
+
+</html>

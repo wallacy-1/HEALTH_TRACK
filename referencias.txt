@@ -1,0 +1,12 @@
+codigo pego e modificado
+
+login ->
+    inputs - https://www.youtube.com/watch?v=GTMEuHxh8aQ&t=634s
+
+dashboard ->
+    circulos - https://www.dottedsquirrel.com/circular-progress-css/
+    graficos - google charts
+
+cadastro ->
+    checkbox - https://stackoverflow.com/questions/2639373/css-html-how-do-i-change-the-color-of-the-check-mark-within-the-checkbox-input
+

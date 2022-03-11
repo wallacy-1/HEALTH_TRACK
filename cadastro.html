@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Track - Cadastro</title>
+
+    <link rel="stylesheet" href="css/style.css"> <!-- linha 407  -->
+    <link rel="icon" href="img/logo.png">
+
+</head>
+
+<body class="fundo-treino-img">
+    <main class="center heigh-100">
+        <form action="perfil.html" class="form-style-1">
+            <h2 class="center">
+                Health Track - Cadastro
+            </h2>
+            <div class="input">
+                <input required type="text" title="Nome de usuario ou apelido" class="input-form-1">
+                <label>Nome</label>
+                <span class="error"></span>
+            </div>
+            <div class="input">
+                <input required type="text" title="Data de nascimento para calcular o imc, treino adequado, data de anniv etc" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'"
+                    class="input-form-1">
+                <label>Data de Nascimento</label>
+                <span class="error"></span>
+            </div>
+            <div class="width-100 display-flex-space-bet">
+                <div class="input">
+                    <input required type="number" title="Peso para treino adequado e imc" class="input-form-1">
+                    <label>peso</label>
+                    <span class="error"></span>
+                </div>
+                <div class="input">
+                    <input required type="number" title="Altura para o imc" class="input-form-1">
+                    <label>altura</label>
+                    <span class="error"></span>
+                </div>
+                <div class="input">
+                    <input type="number" disabled class="input-form-1">
+                    <label>IMC em breve</label>
+                    <!-- em breve quando tiver entrega de javascript e banco de dados -->
+                    <span class="error"></span>
+                </div>
+            </div>
+            <h2 class="m-bottom-pequeno ">Dias de treino</h2>
+            <div class="checkbox-grupo-form-1">
+                <div>
+                    <input type="checkbox" name="dom" id="dom" class="checkbox-form-1">
+                    <label for="dom" class="checkbox-label-form-1">Domingo</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="seg" id="seg" class="checkbox-form-1">
+                    <label for="seg" class="checkbox-label-form-1">Segunda-feira</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ter" id="ter" class="checkbox-form-1">
+                    <label for="ter" class="checkbox-label-form-1">Terça-feira</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="qua" id="qua" class="checkbox-form-1">
+                    <label for="qua" class="checkbox-label-form-1">Quarta-feira</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="qui" id="qui" class="checkbox-form-1">
+                    <label for="qui" class="checkbox-label-form-1">Quinta-feira</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="sex" id="sex" class="checkbox-form-1">
+                    <label for="sex" class="checkbox-label-form-1">Sexta-feira</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="sab" id="sab" class="checkbox-form-1">
+                    <label for="sab" class="checkbox-label-form-1">Sábado</label>
+                </div>
+            </div>
+            <button class="button-form-1" type="submit">Cadastrar</button>
+            <h2 class="center m-bottom-pequeno m-top">Ja tem uma conta?&nbsp<a href="login.html"
+                    class="a-form-1">Logar</a></h2>
+        </form>
+    </main>
+</body>
+
+</html>
